@@ -1,0 +1,10 @@
+<div align="center">
+<div class="col-md-3">
+  <div align="left" >
+    <%= form_for(@user, url: set_role_users_path(id: @user.id), html: { method: :put }) do |f| %>
+      <%= f.select :role_id, Role.all.map{|l| [l.name, l.id]}, { include_blank: "Select Role" } %>
+      <%= f.submit %>
+    <% end %>
+  </div> 
+</div> 
+</div>

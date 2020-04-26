@@ -1,0 +1,23 @@
+<div align="center">
+  <table>
+    <head>
+      <title>Roles</title>
+    </head>
+    <body>
+      <table border = "1" cellpadding = "10" cellspacing = "10" width="50%" height="20px" style="text-align: center;">
+        <tr>
+          
+        </tr>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr class = "">
+            <td height="20"><%= user.email %></td>
+            <td> <%= user.role.name rescue '' %></td>
+            <td><%= link_to "Assign role", assign_role_user_path(user.id) %></td>
+          </tr>
+        <%end%>
+        </tbody>
+      </table>
+    </body>
+  </table>
+</div>  

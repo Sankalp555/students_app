@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <%if current_user.present?%>
+      <%if !current_user.admin? %>
+        <div style="font-size: x-large;color: aliceblue;">Your Role is <%= current_user.role.present? ? current_user.role? : "not assigned yet"%></div>
+      <%else%>
+        <div style="font-size: x-large;color: aliceblue;">Your Role is Admin</div>
+      <%end%>
+    <%end%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <%if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <%if current_user.admin?%>
+            <li class="nav-item">
+              <%= link_to 'Roles', roles_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Users', users_path, class: "nav-link" %>
+            </li>
+          <%end%>
+          <li class="nav-item">
+            <%= link_to 'Students', students_path, class: "nav-link" %>
+          </li>
+        <%else%>          
+          <li class="nav-item">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+</nav>

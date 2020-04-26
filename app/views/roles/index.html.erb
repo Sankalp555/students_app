@@ -1,0 +1,25 @@
+<div align="center">
+  <table>
+    <%= link_to "Add Roles", new_role_path%>
+    <head>
+      <title>Roles</title>
+    </head>
+    <body>
+      <table border = "1" cellpadding = "10" cellspacing = "10" width="50%" height="20px" style="text-align: center;">
+        <tr>
+          
+        </tr>
+        <tbody>
+        <% @roles.each do |role| %>
+          <tr class = "">
+            <td height="20"><%=role.name%></td>
+            <td><%= link_to 'Show', role_path(role) %></td>
+            <td><%= link_to 'Edit', edit_role_path(role.id) %></td>
+            <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <%end%>
+        </tbody>
+      </table>
+    </body>
+  </table>
+</div>  

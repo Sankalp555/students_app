@@ -1,0 +1,29 @@
+<div align="center">
+  <table>
+    <% if can? :create, Student%>
+      <%= link_to "Add Students", new_student_path%>
+    <%end%>
+    <head>
+      <title>Students</title>
+    </head>
+    <body>
+      <table border = "1" cellpadding = "10" cellspacing = "10" width="50%" height="20px" style="text-align: center;">
+        <tr>
+          
+        </tr>
+        <tbody>
+        <% @students.each do |student| %>
+          <tr class = "">
+            <td height="20"><%=student.name%></td>
+            <td height="20"><%=student.marks%></td>
+            <td height="20"><%=student.phone%></td>
+            <td><%= link_to 'Show', student_path(student) %></td> 
+            <td><%= link_to 'Edit', edit_student_path(student.id) if can? :edit, Student %></td>
+            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, Student %></td>
+          </tr>
+        <%end%>
+        </tbody>
+      </table>
+    </body>
+  </table>
+</div>  

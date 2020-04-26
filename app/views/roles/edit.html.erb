@@ -1,0 +1,23 @@
+<div align="center">
+  <%= form_for @role, url: role_path, method: :put do |f| %>
+    <p> 
+      <%f.label :name %>
+      <%= f.text_field :name  %>
+    </p>
+    <p>
+      <%= f.label :can_create %><br>
+      <%= f.check_box :can_create %>
+    </p>
+    <p>
+      <%= f.label :can_edit %><br>
+      <%= f.check_box :can_edit %>
+    </p>
+    <p>
+      <%= f.label :can_destroy %><br>
+      <%= f.check_box :can_destroy %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+</div>
+<% end %>

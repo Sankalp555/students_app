@@ -1,0 +1,23 @@
+<div align="center">
+<%= form_with scope: :role, url: roles_path, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 	<p>
+    <%= form.label :can_create %><br>
+    <%= form.check_box :can_create %>
+  </p>
+  <p>
+    <%= form.label :can_edit %><br>
+    <%= form.check_box :can_edit %>
+  </p>
+  <p>
+    <%= form.label :can_destroy %><br>
+    <%= form.check_box :can_destroy %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>

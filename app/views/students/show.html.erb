@@ -1,0 +1,8 @@
+<div align="center">
+<p><%= @student.name %></p>
+<p><%= @student.marks %></p>
+<p><%= @student.phone %></p>
+
+<%= link_to 'Edit', edit_student_path(@student)  if can? :edit, Student %> |
+<%= link_to 'Back', students_path %>
+</div>
